@@ -34,13 +34,13 @@ export const scrapeImages = async (username) => {
     // await page.screenshot({ path: 'whereNow.png' })
     // await page.waitFor(5000)
 
-    await page.goto(`https://www.instagram.com/${username}`)
+    await page.goto(`https://www.instagram.com/${username}`, { waitUntil: 'networkidle0' })
 
     await page.waitForSelector('img', {
         visible: true
     })
 
-    await page.screenshot({ path: `${username}'s-page.png` })
+    await page.screenshot({ path: `../img/${username}'s-page.png` })
     // console.log(page.url())
     const data = await page.evaluate(() => {
         const images = document.querySelectorAll('img')
