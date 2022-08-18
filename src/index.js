@@ -40,7 +40,7 @@ export const scrapeImages = async (username) => {
         visible: true
     })
 
-    await page.screenshot({ path: `../img/${username}'s-page.png` })
+    await page.screenshot({ path: `${username}'s-page.png` })
     // console.log(page.url())
     const data = await page.evaluate(() => {
         const images = document.querySelectorAll('img')
